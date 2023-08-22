@@ -1,12 +1,13 @@
 import styles from './App.module.css'
 import { Header } from './components/Header'
+import { SearchBar } from './components/SearchBar'
 
 function App() {
   return (
     <div>
       <Header />
       <div className={styles.wrapper}>
-        <p>GitHub Issues Viewer</p>
+        <SearchBar />
       </div>
     </div>
   )
