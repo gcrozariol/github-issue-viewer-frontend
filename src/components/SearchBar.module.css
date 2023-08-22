@@ -1,0 +1,31 @@
+.search input {
+  width: 38rem;
+  height: 3rem;
+  
+  padding: 1rem;
+  
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  
+  color: var(--gray-100);
+  background-color: var(--gray-800);
+}
+
+::placeholder {
+  color: var(--gray-600);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: var(--gray-600);
+}
+
+::-ms-input-placeholder {
+  color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+  .search input {
+    width: 26rem;
+  }
+}
