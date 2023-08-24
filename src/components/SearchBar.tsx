@@ -1,25 +1,16 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 import styles from './SearchBar.module.css'
 
-const fakeApi = () => console.log('Api is called')
+interface SearchBarProps {
+  query: (value: string) => void
+}
 
-export function SearchBar() {
+export function SearchBar({ query }: SearchBarProps) {
   const [inputValue, setInputValue] = useState('')
 
   useEffect(() => {
-    if (inputValue !== '') {
-      const timer = setTimeout(() => {
-        fakeApi()
-      }, 500)
-  
-      return () => clearTimeout(timer)
-    }
-  }, [inputValue])
-
-  function handleCreateTask(e: FormEvent) {
-    e.preventDefault()
-    setInputValue('')
-  }
+    query(inputValue)
+  }, [query, inputValue])
 
   function handleSetInputValue(e: ChangeEvent<HTMLInputElement>) {
     e.preventDefault()
@@ -27,10 +18,7 @@ export function SearchBar() {
   }
 
   return (
-    <form 
-      className={styles.search} 
-      onSubmit={handleCreateTask}
-    >
+    <form className={styles.search}>
       <input 
         value={inputValue}
         onChange={handleSetInputValue}
