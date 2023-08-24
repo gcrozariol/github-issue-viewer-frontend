@@ -1,0 +1,40 @@
+a {
+  display: flex;
+  align-items: center;
+  
+  padding: 0.75rem;
+
+  width: 38rem;
+  height: 4.5rem;
+
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+
+  color: inherit;
+
+  transition: 0.1s;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  border: 1px solid var(--gray-600);
+  background-color: var(--gray-800);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  margin-right: 0.75rem;
+  
+  border-radius: 50%;
+  border: 1px solid var(--gray-700);
+}
+
+@media (max-width: 768px) {
+  a {
+    width: 26rem;
+  }
+}

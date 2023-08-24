@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: var(--gray-800);
+}
+
+.repository + .repository {
+  padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .repository {
+    width: 26rem;
+  }
+}
