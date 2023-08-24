@@ -21,7 +21,7 @@ function App() {
       setIsFetchingRepos(false)
     }
 
-    if (query.includes('/') && !query.endsWith('-')) {
+    if (query.includes('/') && !query.startsWith('/') && !query.endsWith('-')) {
       setIsFetchingRepos(true)
 
       const timer = setTimeout(async () => {
