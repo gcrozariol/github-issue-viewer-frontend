@@ -5,7 +5,7 @@ import { RepoList } from './components/RepoList'
 import { SearchBar } from './components/SearchBar'
 import { Spinner } from './components/Spinner'
 
-import { fetchRepositories } from './api/repo'
+import { fetchRepositories } from './api/repository'
 import { Repository } from './interfaces/Repo'
 
 import styles from './App.module.css'
