@@ -46,8 +46,19 @@ export function RepoCard({ repository }: RepoCardProps) {
   return (
     <>
       <div className={styles.wrapper}>
-        <img src={repository.author.avatar} />
-        <span>{repository.name}</span>
+        <div className={styles.avatarWrapper}>
+          <a href={`https://github.com/${repository.author.username}`} target="_blank">
+            <img src={repository.author.avatar} />
+          </a>
+        </div>
+        <span>
+          <a 
+            target="_blank"
+            href={`https://github.com/${repository.name}`}
+          >
+            {repository.name}
+          </a>
+        </span>
         <button onClick={handleSelectCard}>
           <CaretRight 
             size={20}

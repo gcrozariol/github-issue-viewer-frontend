@@ -30,8 +30,18 @@
 
 .issues {
   padding-bottom: 1rem;
+  width: 36rem;
 }
 
 .issuesWrapper {
   margin-bottom: -1rem;
+}
+
+p {
+  color: var(--gray-500);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2; 
+  -webkit-box-orient: vertical;
 }

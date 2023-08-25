@@ -24,7 +24,7 @@ function Issues({ issues }: ListProps) {
         </p>
         <p>
           <span>Description: </span>
-          {issue.body}
+          {issue.body} 
         </p>
       </div>
     )
