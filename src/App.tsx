@@ -5,7 +5,7 @@ import { RepoList } from './components/RepoList'
 import { SearchBar } from './components/SearchBar'
 import { Spinner } from './components/Spinner'
 
-import { fetchRepositories } from './api/repo'
+import { fetchRepositories } from './api/repository'
 import { Repository } from './interfaces/Repo'
 
 import styles from './App.module.css'
@@ -21,7 +21,7 @@ function App() {
       setIsFetchingRepos(false)
     }
 
-    if (query.includes('/')) {
+    if (query.includes('/') && !query.startsWith('/') && !query.endsWith('-')) {
       setIsFetchingRepos(true)
 
       const timer = setTimeout(async () => {
@@ -34,8 +34,11 @@ function App() {
           setIsFetchingRepos(false)
         }
         
-        return () => clearTimeout(timer)
       }, 500)
+
+      return () => clearTimeout(timer)
+    } else {
+      setIsFetchingRepos(false)
     }
 
   }, [query])

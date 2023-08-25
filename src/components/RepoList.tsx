@@ -7,15 +7,11 @@ interface RepoListProps {
 }
 
 export function RepoList({ repositories }: RepoListProps) {
-  return (
-    <>
-      {repositories.map(repository => {
-        return (
-          <div key={repository.id} className={styles.repository}>
-            <RepoCard repository={repository} />
-          </div>
-        )
-      })}
-    </>
-  )
+  return repositories.map(repository => {
+    return (
+      <div key={repository.id} className={styles.repository}>
+        <RepoCard repository={repository} />
+      </div>
+    )
+  })
 }

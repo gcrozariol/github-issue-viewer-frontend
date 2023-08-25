@@ -22,7 +22,7 @@ export function SearchBar({ query }: SearchBarProps) {
       <input 
         value={inputValue}
         onChange={handleSetInputValue}
-        placeholder='Search for a GitHub repository i.e. gcrozariol/gympass-api...'
+        placeholder='Search for a GitHub repository i.e. username/repository...'
       />
     </form>
   )
