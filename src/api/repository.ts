@@ -10,8 +10,8 @@ export interface Repositories {
 }
 
 export const fetchRepositories = async (value: string): Promise<Repositories> => {
-  const repo = value.split('/')[1]
   const user = value.split('/')[0]
+  const repo = value.split('/')[1]
 
   try {
     const result = await fetch(`${import.meta.env.VITE_API_URL}/repos?repo=${repo}&user=${user}`)

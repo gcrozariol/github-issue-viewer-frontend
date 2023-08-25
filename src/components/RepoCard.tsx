@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Repository } from "../interfaces/Repo"
 import styles from './RepoCard.module.css'
 import { CaretRight  } from 'phosphor-react'
 import { IssuesList } from "./IssuesList"
+import { Issue } from '../interfaces/Issue'
+import { fetchIssuesByRepository } from "../api/issues"
 
 interface RepoCardProps {
   repository: Repository
@@ -10,12 +12,27 @@ interface RepoCardProps {
 
 export function RepoCard({ repository }: RepoCardProps) {
   const [isCardSelected, setIsCardSelected] = useState(false)
+  const [issues, setIssues] = useState<Issue[]>([])
+  const [isLoadingIssues, setIsLoadingIssues] = useState(false)
 
-  function handleSelectCard() {
-    setIsCardSelected(value => {
+  async function handleSelectCard() {
+    setIsCardSelected((value) => {
       return !value
     })
   }
+
+  useEffect(() => {
+    async function fetchIssues() {
+      const data = await fetchIssuesByRepository(repository.name)
+      setIssues(data.issues)
+      setIsLoadingIssues(false)
+    }
+
+    if (isCardSelected && issues.length === 0) {
+      setIsLoadingIssues(true)
+      fetchIssues()
+    }
+  }, [isCardSelected, issues.length, repository.name])
 
   return (
     <>
@@ -32,7 +49,8 @@ export function RepoCard({ repository }: RepoCardProps) {
       </div>
       <IssuesList 
         active={isCardSelected} 
-        repository={repository.name}
+        loading={isLoadingIssues}
+        issues={issues}
       />
     </>
   )

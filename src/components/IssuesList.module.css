@@ -1,15 +1,17 @@
 .wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   
   margin-top: 1rem;
   padding: 0.75rem;
 
   width: 38rem;
-  height: 4.5rem;
+  min-height: 4.5rem;
 
   border: 1px solid var(--gray-500);
   border-radius: 8px;
+  overflow-x: hidden;
 }
 
 .hiddenWrapper {
