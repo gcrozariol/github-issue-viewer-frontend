@@ -1,10 +1,8 @@
 import { Issue } from '../interfaces/Issue'
 import styles from './IssuesList.module.css'
-import { Spinner } from './Spinner'
 
 interface IssuesListProps {
   active: boolean
-  loading: boolean
   issues: Issue[]
 }
 
@@ -12,14 +10,14 @@ interface ListProps {
   issues: Issue[]
 }
 
-function IssueCard({ issues }: ListProps) {
-  if (issues.length === 0) {
-    return <p>No issues found.</p>
-  }
-  
+function EmptyIssuesList() {
+  return <p className={styles.emptyIssuesList}>No issues found.</p>
+}
+
+function Issues({ issues }: ListProps) {
   return issues.map(issue => {
     return (
-      <div key={issue.id}>
+      <div className={styles.issues} key={issue.id}>
         <p>
           <span>Title: </span>
           {issue.title}
@@ -28,18 +26,20 @@ function IssueCard({ issues }: ListProps) {
           <span>Description: </span>
           {issue.body}
         </p>
-        <br/>
       </div>
     )
   })
 }
 
-export function IssuesList({ active, loading, issues }: IssuesListProps) {
+export function IssuesList({ active, issues }: IssuesListProps) {
   return (
     <div className={active ? styles.wrapper : styles.hiddenWrapper}>
-      { loading ? 
-        <Spinner /> : 
-        <IssueCard issues={issues} />
+      {
+        issues.length === 0 ? 
+        <EmptyIssuesList /> : 
+        <div className={styles.issuesWrapper}>
+          <Issues issues={issues} />
+        </div>
       }
     </div>
   )

@@ -55,6 +55,23 @@
   background-color: var(--gray-900);
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: 1rem;
+  padding: 0.75rem;
+
+  width: 38rem;
+  min-height: 4.5rem;
+
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+
+  background-color: var(--gray-800);
+}
+
 @media (max-width: 768px) {
   a {
     width: 26rem;

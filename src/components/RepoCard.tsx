@@ -5,9 +5,18 @@ import { CaretRight  } from 'phosphor-react'
 import { IssuesList } from "./IssuesList"
 import { Issue } from '../interfaces/Issue'
 import { fetchIssuesByRepository } from "../api/issues"
+import { Spinner } from "./Spinner"
 
 interface RepoCardProps {
   repository: Repository
+}
+
+function Loading() {
+  return (
+    <div className={styles.loading}>
+      <Spinner />
+    </div>
+  )
 }
 
 export function RepoCard({ repository }: RepoCardProps) {
@@ -47,11 +56,14 @@ export function RepoCard({ repository }: RepoCardProps) {
           />
         </button>
       </div>
-      <IssuesList 
-        active={isCardSelected} 
-        loading={isLoadingIssues}
-        issues={issues}
-      />
+      {
+        isLoadingIssues ?
+        <Loading /> :
+        <IssuesList 
+          active={isCardSelected}
+          issues={issues}
+        />
+      }
     </>
   )
 }

@@ -1,7 +1,5 @@
 .wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
   
   margin-top: 1rem;
   padding: 0.75rem;
@@ -9,15 +7,31 @@
   width: 38rem;
   min-height: 4.5rem;
 
-  border: 1px solid var(--gray-500);
+  border: 1px solid var(--gray-700);
   border-radius: 8px;
-  overflow-x: hidden;
+
+  background-color: var(--gray-800);
+}
+
+.wrapper span {
+  font-weight: bold;
 }
 
 .hiddenWrapper {
   display: none;
 }
 
-.wrapper span {
-  font-weight: bold;
+.emptyIssuesList {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.issues {
+  padding-bottom: 1rem;
+}
+
+.issuesWrapper {
+  margin-bottom: -1rem;
 }
