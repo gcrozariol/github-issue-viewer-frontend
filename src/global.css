@@ -23,12 +23,14 @@
 
 html {
   font-family: 'Mona Sans';
+  overflow-x: hidden;
 }
 
 body {
   background: var(--gray-900);
   color: var(--gray-300);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {

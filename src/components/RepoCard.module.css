@@ -99,4 +99,12 @@
   a {
     width: 26rem;
   }
+
+  .wrapper {
+    width: 26rem;
+  }
+
+  .loading {
+    width: 26rem;
+  }
 }
