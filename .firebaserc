@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "gcrozariol-app"
+  },
+  "targets": {
+    "gcrozariol-app": {
+      "hosting": {
+        "github-issue-viewer": [
+          "gcrozariol-github-issue-viewer"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
